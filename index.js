@@ -51,10 +51,19 @@ Use getFinals to do the following:
 💡 HINT - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-    /* code here */
+function getFinals(array) {
+    let newArray = []
+    array.map(item => {
+        let newObj = {}
+        newObj.Home = item['Home Team Name']
+        newObj.Away = item['Away Team Name']
+        if(item.Stage === "Final") {
+        newArray.push(newObj)
+        }
+    })
+    console.log(newArray)
  }
-
+getFinals(fifaData)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
