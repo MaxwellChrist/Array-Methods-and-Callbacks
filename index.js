@@ -8,15 +8,40 @@ Practice accessing data by console.log-ing the following pieces of data note.
 💡 HINT: You may want to filter the data first 😉*/
 
 //(a) Home Team name for 2014 world cup final
+const targetData2014 = fifaData.filter(item => {
+    return item.Year === 2014 && item.Stage === "Final"
+})
+console.log(targetData2014)
 
 //(b) Away Team name for 2014 world cup final
+const awayTeam2014 = targetData2014.map(item => {
+    let target = item["Away Team Name"].toLocaleString()
+    return console.log(target)
+})
 
 //(c) Home Team goals for 2014 world cup final
+const homeGoals2014 = targetData2014.map(item => {
+    let target = item["Home Team Goals"].toLocaleString()
+    return console.log(target)
+})
 
 //(d) Away Team goals for 2014 world cup final
-
+const awayGoals2014 = targetData2014.map(item => {
+    let target = item["Away Team Goals"].toLocaleString()
+    return console.log(target)
+})
 //(e) Winner of 2014 world cup final */
-
+const winner2014 = targetData2014.map(item => {
+    let homeTarget = item["Home Team Goals"].toLocaleString()
+    let awayTarget = item["Away Team Goals"].toLocaleString()
+    if (homeTarget > awayTarget) {
+        return console.log(item["Home Team Name"].toLocaleString())
+    } else if (awayTarget > HomeTarget) {
+        return console.log(item["Away Team Name"].toLocaleString())
+    } else {
+        return console.log(item["Win conditions"].toLocaleString())
+    }
+})
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
