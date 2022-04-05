@@ -51,20 +51,27 @@ Use getFinals to do the following:
 💡 HINT - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(array) {
-    let newArray = []
-    array.map(item => {
-        let newObj = {}
-        newObj.Home = item['Home Team Name']
-        newObj.Away = item['Away Team Name']
-        if(item.Stage === "Final") {
-        newArray.push(newObj)
-        }
-    })
-    console.log(newArray)
- }
-getFinals(fifaData)
+// function getFinals(array) {
+//     let newArray = []
+//     array.map(item => {
+//         let newObj = {}
+//         newObj.Home = item['Home Team Name']
+//         newObj.Away = item['Away Team Name']
+//         if(item.Stage === "Final") {
+//         newArray.push(newObj)
+//         }
+//     })
+//     console.log(newArray)
+//  }
+// getFinals(fifaData)
 
+function getFinals(array) {
+    let finals = array.filter(item => {
+        return item.Stage === "Final"
+    })
+    return finals
+}
+console.log(getFinals(fifaData))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -72,11 +79,12 @@ Use the higher-order function called getYears to do the following:
 2. Receive a callback function as the second parameter that will take getFinals from task 2 as an argument
 3. Return an array called years containing all of the years in the getFinals data set*/
 
-function getYears(/* code here */) {
-    /* code here */
+function getYears(array, callback) {
+    let years = callback(array).map(item => item.Year)
+    return years
 }
 
-
+console.log(getYears(fifaData, getFinals))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
