@@ -499,10 +499,10 @@ describe('getWinnersByYear', ()=>{
                 'In 1982, Italy won the world cup!',
                 'In 1986, Argentina won the world cup!',
                 'In 1990, Germany FR won the world cup!',
-                'In 1994, Italy won the world cup!',
+                'In 1994, Brazil won the world cup!',
                 'In 1998, France won the world cup!',
                 'In 2002, Brazil won the world cup!',
-                'In 2006, France won the world cup!',
+                'In 2006, Italy won the world cup!',
                 'In 2010, Spain won the world cup!',
                 'In 2014, Germany won the world cup!'
               ]

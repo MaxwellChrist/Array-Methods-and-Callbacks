@@ -100,12 +100,16 @@ function getWinners(array, callback) {
         } else if (item['Home Team Goals'] < item['Away Team Goals']) {
             return item['Away Team Name']
         } else {
-            return item['Win conditions']
+            let target = item['Win conditions']
+            if (target.includes(item['Home Team Name'])) {
+                return item['Home Team Name']
+            } else {
+                return item['Away Team Name']
+            }
         }
     })
 }
 console.log(getWinners(fifaData, getFinals))
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -118,11 +122,24 @@ Use the higher-order function getWinnersByYear to do the following:
 💡 HINT: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, callback, callback2, callback3) {
+    return callback(array).map(item => {
+        if (item['Home Team Goals'] > item['Away Team Goals']) {
+            return (`In ${item.Year}, ${item['Home Team Name']} won the world cup!`)
+        } else if (item['Home Team Goals'] < item['Away Team Goals']) {
+            return (`In ${item.Year}, ${item['Away Team Name']} won the world cup!`)
+        } else {
+            let target = item['Win conditions']
+            // return target
+            if (target.includes(item['Home Team Name'])) {
+                return (`In ${item.Year}, ${item['Home Team Name']} won the world cup!`)
+            } else {
+                return (`In ${item.Year}, ${item['Away Team Name']} won the world cup!`)
+            }
+        }
+    })
 }
-
-
+console.log(getWinnersByYear(fifaData, getFinals, getYears, getWinners))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
